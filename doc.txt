@@ -1,0 +1,154 @@
+# file: Dockerfile
+
+FROM node:alpine
+COPY . /app
+WORKDIR /app
+CMD node app.js
+
+.....................................................
+to download ubuntu in my pc
+docker run ubuntu
+docker ps // to see running list of processes use -a to see all container
+docker run -it ubuntu //to run ubutu in iteractive mode
+echo hello //to print hello
+whoami 
+echo $0 //to know where its downloaded
+history //to see all command i typed
+!2 // execute second command
+//linux is case censetive 
+...........................................................
+
+apt //like npm or yarn 
+apt list //to see all packages
+apt update 
+apt install <package name> // apt install nano
+nano // to open nano text editor
+apt remove nano // to remove nano
+............................................................
+
+pwd //to see root directory
+ls //list of files -1 -l
+cd bin //navigate to other file /absule no need .
+cd .. // back
+cd ~ // to go home directory
+.............................................................
+cd ~
+mkdir test //make dir
+ls 
+mv test docker //move or rename file and folder
+touch hello.txt //to create a new file
+rm file.txt //remove file file*(stating with file)
+rm -r docker/ //to remove directory recursively
+.................................................................
+
+nano file.txt // to open file in nano editor
+cat file.txt //to see content of a file
+more file.txt //to see long doc page by page press space bar to go next page and press 	q to quit the file
+
+less /etc/adduser.config // to see all content use up and down arrow to navigae line
+.....................................................................
+------redirection operation (>)
+cat file1.txt file2.txt //concat two file and print 
+cat file.txt > file1.txt // move file.txt content to file1.txt and display
+cat file1.txt file2.txt > cobine.txt
+echo whater > file1.txt
+ls -l /etc > files.txt // to show the log listing of etc dir
+.....................................................................
+seach text 
+grep -i hello file1.txt
+...................................................................
+finding files and directories:
+ls -a //to see hidden file
+find -type d //find directory
+find / -type f -name "*.py" > py-files.txt//find all files in root directory name end with .py and redirect to py-files.txt
+cat py-files.txt
+.....................................................................
+chaining commands:
+mkdir test ; cd test ; echo done
+mkdir test && cd test  // if first c. executes then second c.
+mkdir test || cd test
+ls /bin | less
+\ //to add new line
+................................................................
+environment variable:
+printenv
+printenv PATH //to see path variable
+export DB_USER=fahim //only availabe on the current session
+docker ps -a
+docker start -i id //id of ubuntu container
+ls -a
+echo DB_USER=fahim >> .bashrc //to store env permenently
+sourse ~/.bashrc //to reload 
+...........................................................
+managin prosses:
+ps
+sleep 3 //sleep 3sc
+sleep 100 & //backgroud sleep
+kill 38(prossed id)
+.................................................................
+managin users:
+useradd usermod userdel
+useradd -m fahim
+cat /etc/passwd
+usermod -s /bin/bash fahim
+cat /etc/passwd
+cat /etc/shadow
+docker exe -it -u fahim id bash
+..............................................................
+managing groups:
+groupadd groupmod groupdel
+groupadd -m developers
+usermod -G developers fahim
+....................................................................
+file permission:
+echo echo hello > deploy.sh //.sh will execute echo hello to the terminal
+ls -l // to see permission
+chmod u+x deploy.sh
+
+
+<<<<<<<<<< building Images >>>>>>>
+
+
+dokerfile:
+FROM 
+WORKDIR
+COPY 
+ADD
+RUN
+ENV
+EXPOSE
+USER
+CMD 
+ENTRYPOINT
+...............................................................
+
+FROM node:16.9.1-alpine3.14
+
+docker build -t react-app . //tag react-app and build in current dir
+docker images //to see all images
+docker run -it react-app
+docker run -it react-app sh // run with shall
+....................................................................
+WORKDIR /app 
+COPY .(source)  .(docker)  //copy everything from the current dir to /app
+docker build -t react-app .
+...............................................................
+.dockerignore //add everything that dont need e.g node_modules
+................................................................
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
